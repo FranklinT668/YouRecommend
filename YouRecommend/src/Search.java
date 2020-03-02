@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Search {
 
 	public static void main(String[] args) {
-
+		System.out.println("TEST");
         String fileName = "test.csv";
         File file = new File(fileName);
         
@@ -16,7 +16,7 @@ public class Search {
 			while(inputStream.hasNextLine()) {
 				String data = inputStream.nextLine();
 				String[] values = data.split(",");
-				System.out.println(values[6] + "***");
+				System.out.println(values[0] + ", " + values[1] + ", " + values[5] + " ***");
 			}
 			inputStream.close();
 			
