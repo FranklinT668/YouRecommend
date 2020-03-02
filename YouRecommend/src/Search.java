@@ -16,7 +16,7 @@ public class Search {
 			while(inputStream.hasNextLine()) {
 				String data = inputStream.nextLine();
 				String[] values = data.split(",");
-				System.out.println(values[0] + ", " + values[1] + ", " + values[5] + " ***");
+				System.out.println(values[0] + ", " + values[1] + ", " + values[2] + ", " + values[3] + ", " + values[4] + ", " + values[5] + " ***");
 			}
 			inputStream.close();
 			
