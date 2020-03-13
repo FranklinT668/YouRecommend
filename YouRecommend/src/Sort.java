@@ -1,0 +1,186 @@
+import java.util.ArrayList;
+
+public class Sort {
+	
+	private void merge_Followers(ArrayList<YouTuber> arr, int l, int m, int r) {
+		int n1 = m - l + 1; 
+        int n2 = r - m; 
+        int L[] = new int [n1]; 
+        int R[] = new int [n2]; 
+        for (int i=0; i<n1; ++i) 
+            L[i] = arr.get(l + i); 
+        for (int j=0; j<n2; ++j) 
+            R[j] = arr.get(m + 1+ j); 
+        int i = 0, j = 0;  
+        int k = l; 
+        while (i < n1 && j < n2) 
+        { 
+            if (L[i].getFollowers() <= R[j].getFollowers()) 
+            { 
+                arr.set(k, L[i]); 
+                i++; 
+            } 
+            else
+            { 
+            	arr.set(k, R[j]);
+                j++; 
+            } 
+            k++; 
+        } 
+        while (i < n1) 
+        { 
+        	arr.set(k, L[i]);
+            i++; 
+            k++; 
+        } 
+        while (j < n2) 
+        { 
+        	arr.set(k, R[j]);
+            j++; 
+            k++; 
+		}
+	}
+	
+	private void sort_Followers (ArrayList<YouTuber> arr, int l, int r) {
+		if (l < r) {
+			int m = (l+r)/2;
+			sort_Followers(arr, l, m);
+			sort_Followers(arr, m+1, r);
+			merge_Followers(arr, l, m, r);
+		}
+	}
+	
+	ArrayList<YouTuber> MergeSort_Followers (ArrayList<YouTuber> arr){
+		ArrayList<YouTuber> sorted = arr;
+		Sort ob = new Sort();
+		ob.sort_Followers(sorted, 0, sorted.size()-1);
+		return sorted;
+	}
+	
+	private int partition_Followers (ArrayList<YouTuber> arr, int low, int high) {
+		int pivot = arr.get(high);
+		int i = low - 1;
+		for (int j = low; j<high; j++) {
+			if (arr.get(j).getFollowers() < pivot.getFollowers()) {
+				i++;
+				int temp = arr.get(i);
+				arr.set(i, arr.get(j));
+				arr.set(j, temp);
+			}
+		}
+		int temp = arr.get(i+1);
+		arr.set(i+1, arr.get(high));
+		arr.set(high, temp);
+		return i+1;
+	}
+	
+	private void sort_quick_Followers (ArrayList<YouTuber> arr, int low, int high) {
+		if (low < high) {
+			int pi = partition_Followers(arr, low, high);
+			sort_quick_Followers(arr, low, pi-1);
+			sort_quick_Followers(arr, pi+1, high);
+		}
+	}
+	
+	ArrayList<YouTuber> QuickSort_Followers (ArrayList<YouTuber> arr){
+		ArrayList<YouTuber> sorted = arr;
+		Sort ob = new Sort();
+		ob.sort_quick_Followers(sorted, 0, sorted.size()-1);
+		return sorted;
+	}
+	
+	private void merge_Videos(ArrayList<YouTuber> arr, int l, int m, int r) {
+		int n1 = m - l + 1; 
+        int n2 = r - m; 
+        int L[] = new int [n1]; 
+        int R[] = new int [n2]; 
+        for (int i=0; i<n1; ++i) 
+            L[i] = arr.get(l + i); 
+        for (int j=0; j<n2; ++j) 
+            R[j] = arr.get(m + 1+ j); 
+        int i = 0, j = 0;  
+        int k = l; 
+        while (i < n1 && j < n2) 
+        { 
+            if (L[i].getVideos() <= R[j].getVideos()) 
+            { 
+                arr.set(k, L[i]); 
+                i++; 
+            } 
+            else
+            { 
+            	arr.set(k, R[j]);
+                j++; 
+            } 
+            k++; 
+        } 
+        while (i < n1) 
+        { 
+        	arr.set(k, L[i]);
+            i++; 
+            k++; 
+        } 
+        while (j < n2) 
+        { 
+        	arr.set(k, R[j]);
+            j++; 
+            k++; 
+		}
+	}
+	
+	private void sort_Videos (ArrayList<YouTuber> arr, int l, int r) {
+		if (l < r) {
+			int m = (l+r)/2;
+			sort_Videos(arr, l, m);
+			sort_Videos(arr, m+1, r);
+			merge_Videos(arr, l, m, r);
+		}
+	}
+	
+	ArrayList<YouTuber> MergeSort_Videos (ArrayList<YouTuber> arr){
+		ArrayList<YouTuber> sorted = arr;
+		Sort ob = new Sort();
+		ob.sort_Videos(sorted, 0, sorted.size()-1);
+		return sorted;
+	}
+	
+	private int partition_Videos (ArrayList<YouTuber> arr, int low, int high) {
+		int pivot = arr.get(high);
+		int i = low - 1;
+		for (int j = low; j<high; j++) {
+			if (arr.get(j).getVideos() < pivot.getVideos()) {
+				i++;
+				int temp = arr.get(i);
+				arr.set(i, arr.get(j));
+				arr.set(j, temp);
+			}
+		}
+		int temp = arr.get(i+1);
+		arr.set(i+1, arr.get(high));
+		arr.set(high, temp);
+		return i+1;
+	}
+	
+	private void sort_quick_Videos (ArrayList<YouTuber> arr, int low, int high) {
+		if (low < high) {
+			int pi = partition_Videos(arr, low, high);
+			sort_quick_Videos(arr, low, pi-1);
+			sort_quick_Videos(arr, pi+1, high);
+		}
+	}
+	
+	ArrayList<YouTuber> QuickSort_Videos (ArrayList<YouTuber> arr){
+		ArrayList<YouTuber> sorted = arr;
+		Sort ob = new Sort();
+		ob.sort_quick_Videos(sorted, 0, sorted.size()-1);
+		return sorted;
+	}
+	
+	
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}
