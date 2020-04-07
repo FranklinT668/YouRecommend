@@ -59,5 +59,16 @@ public class YouTuber{
     public int getVideos(){
         return this.videos;
     }
+    
+    
+    public boolean equals(YouTuber that) {
+    	return (this.getCategory_id() == that.getCategory_id() &&
+				this.getCategory_name().equals(that.getCategory_name()) &&
+				this.getCountry().equals(that.getCountry()) &&
+				this.getFollowers() == that.getFollowers() &&
+				this.getJoinDate().equals(that.getJoinDate()) &&
+				this.getTitle().equals(that.getTitle()) &&
+				this.getVideos() == that.getVideos());
+    }
 
 }
