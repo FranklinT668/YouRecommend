@@ -1,12 +1,19 @@
 import java.util.ArrayList;
 
-
+/**
+ * @brief Depth-first Search.
+ */
 public class DFS {
 	private YouTuber temp;
 	private boolean[] marked;
 	private YouTuber[] edgeTo;
 	private Graph g;
 
+    /**
+	 * @brief The constructor of depth first search.
+	 * @param g An undirected graph.
+	 * @param category The category of a YouTuber.
+	 */
 	public DFS(Graph g, String category) {
 		
 		for (YouTuber u: g.getYouTubers()) {
@@ -20,6 +27,11 @@ public class DFS {
 		dfs(g, temp);
 	}
 	
+	/**
+	 * @brief Depth-first search.
+	 * @param g An undirected graph.
+	 * @param source The source vertex.
+	 */
 	private void dfs(Graph g, YouTuber source) {
 		int i = g.getYouTuberIndex(source);
 		marked[i] = true;
@@ -31,10 +43,20 @@ public class DFS {
 		}
 	}
 	
+	/**
+	 * @brief Checks whether a vertex has been visited.
+	 * @param u A vertex in type of YouTuber.
+	 * @return True if the YouTuber object has been visited
+	 * 		   and false otherwise.
+	 */
 	public boolean visited(YouTuber u) {
 		return marked[g.getYouTuberIndex(u)];
 	}
 	
+	/**
+	 * @brief Gets the related YouTubers.
+	 * @return The related YouTubers.
+	 */
 	public ArrayList<YouTuber> relatedYouTubers(){
 		ArrayList<YouTuber> a = new ArrayList<YouTuber>();
 		for (int i = 0; i < marked.length; i++) {
