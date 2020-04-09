@@ -25,42 +25,86 @@ public class Search {
 		return input.replaceAll("\\s+", "");
 	}
 
-	/**
-	 * @brief Driver function that displays the all the channel information being
-	 *        searched
-	 */
-	public static void main(String[] args) {
+	public static ArrayList<String> searchCategory(String channel) {
 		// Receive input of the dataset csv file
-		String input = "test.csv";
+		String input = "channels.csv";
 		// Stores the input in a 2D array
 		String[][] dataset = readCSV.CSVReader(input);
 		int n = dataset.length - 1;
 		// Search Youtube channel as input
-		String searchInput = new String("Pew Die Pie");
-		boolean founded = false;
+		String searchInput = new String(channel);
+		
 		int foundIndex = 0;
+		// Arraylist of channel information about the searched channel
+		ArrayList<String> channelInfo = new ArrayList<String>();
 		// Sequential search in the dataset to match searchInput to the corresponding
 		// youtube channels
 		for (int i = 1; i < n; i++) {
 			// The input's case is not sensitive and ignores white spaces
-			if (searchInput.equalsIgnoreCase(dataset[i][4])
-					|| removeWhiteSpaces(searchInput).equalsIgnoreCase(removeWhiteSpaces(dataset[i][4]))) {
+			if (searchInput.equalsIgnoreCase(dataset[i][1])
+					|| removeWhiteSpaces(searchInput).equalsIgnoreCase(removeWhiteSpaces(dataset[i][1]))) {
+				
+				foundIndex = i;
+				channelInfo.add(dataset[foundIndex][5]);
+			}
+		}
+
+		return channelInfo;
+	}
+
+	
+	
+	
+	/**
+	 * @brief Search function that searches for a specific youtube channel
+	 * @param channel The channel being searched
+	 * @return An arraylist of the information about that specific channel
+	 */
+	public static ArrayList<String> searchChannel(String channel) {
+		// Receive input of the dataset csv file
+		String input = "channels.csv";
+		// Stores the input in a 2D array
+		String[][] dataset = readCSV.CSVReader(input);
+		int n = dataset.length - 1;
+		// Search Youtube channel as input
+		String searchInput = new String(channel);
+		boolean founded = false;
+		int foundIndex = 0;
+		// Arraylist of channel information about the searched channel
+		ArrayList<String> channelInfo = new ArrayList<String>();
+		// Sequential search in the dataset to match searchInput to the corresponding
+		// youtube channels
+		for (int i = 1; i < n; i++) {
+			// The input's case is not sensitive and ignores white spaces
+			if (searchInput.equalsIgnoreCase(dataset[i][5])
+					|| removeWhiteSpaces(searchInput).equalsIgnoreCase(removeWhiteSpaces(dataset[i][5]))) {
 				founded = true;
 				foundIndex = i;
 			}
 		}
-		System.out.println("YOUTUBER EXISTS: " + founded);
 		// Channel exists within the database
 		if (founded) {
-			System.out.println("CATEGORY: " + dataset[foundIndex][1]);
-			System.out.println("SUBSCRIBERS: " + dataset[foundIndex][2]);
-			System.out.println("JOIN DATE: " + dataset[foundIndex][3]);
-			System.out.println("CHANNEL NAME: " + dataset[foundIndex][4]);
-			System.out.println("VIDEO COUNT: " + dataset[foundIndex][5]);
+			channelInfo.add(dataset[foundIndex][5]);
+			channelInfo.add(dataset[foundIndex][1]);
+			channelInfo.add(dataset[foundIndex][2]);
+			channelInfo.add(dataset[foundIndex][3] + " Subscribers");
+			channelInfo.add(dataset[foundIndex][4]);
+			channelInfo.add(dataset[foundIndex][6] + " Videos");
 			// Channel does not exist within the database
 		} else {
-			System.out.print("YOUTUBER INFORMATION: N/A");
+			channelInfo.add("Youtuber does not exist");
+			// System.out.print("YOUTUBER INFORMATION: N/A");
 		}
+
+		return channelInfo;
+
+	}
+
+	public static void main(String[] args) {
+		ArrayList<String> test = searchChannel("pew die pie");
+		System.out.println(test);
+		ArrayList<String> test2 = searchCategory("film and animation");
+		System.out.println(test2);
 	}
 
 }

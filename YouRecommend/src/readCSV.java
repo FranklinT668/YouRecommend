@@ -14,7 +14,7 @@ public class readCSV {
 	 * @param filepath The file to be read from
 	 * @return The data that is stored in a 2D array
 	 */
-	private static String[][] CSVReader(String filepath) {
+	static String[][] CSVReader(String filepath) {
 
 		String csvFile = filepath;
 		BufferedReader br = null;
