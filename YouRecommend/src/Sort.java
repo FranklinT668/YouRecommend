@@ -5,8 +5,8 @@ public class Sort {
 	private void merge_Followers(ArrayList<YouTuber> arr, int l, int m, int r) {
 		int n1 = m - l + 1; 
         int n2 = r - m; 
-        int L[] = new int [n1]; 
-        int R[] = new int [n2]; 
+        YouTuber L[] = new YouTuber [n1]; 
+        YouTuber R[] = new YouTuber [n2]; 
         for (int i=0; i<n1; ++i) 
             L[i] = arr.get(l + i); 
         for (int j=0; j<n2; ++j) 
@@ -58,17 +58,17 @@ public class Sort {
 	}
 	
 	private int partition_Followers (ArrayList<YouTuber> arr, int low, int high) {
-		int pivot = arr.get(high);
+		YouTuber pivot = arr.get(high);
 		int i = low - 1;
 		for (int j = low; j<high; j++) {
 			if (arr.get(j).getFollowers() < pivot.getFollowers()) {
 				i++;
-				int temp = arr.get(i);
+				YouTuber temp = arr.get(i);
 				arr.set(i, arr.get(j));
 				arr.set(j, temp);
 			}
 		}
-		int temp = arr.get(i+1);
+		YouTuber temp = arr.get(i+1);
 		arr.set(i+1, arr.get(high));
 		arr.set(high, temp);
 		return i+1;
@@ -92,8 +92,8 @@ public class Sort {
 	private void merge_Videos(ArrayList<YouTuber> arr, int l, int m, int r) {
 		int n1 = m - l + 1; 
         int n2 = r - m; 
-        int L[] = new int [n1]; 
-        int R[] = new int [n2]; 
+        YouTuber L[] = new YouTuber [n1]; 
+        YouTuber R[] = new YouTuber [n2]; 
         for (int i=0; i<n1; ++i) 
             L[i] = arr.get(l + i); 
         for (int j=0; j<n2; ++j) 
@@ -145,17 +145,17 @@ public class Sort {
 	}
 	
 	private int partition_Videos (ArrayList<YouTuber> arr, int low, int high) {
-		int pivot = arr.get(high);
+		YouTuber pivot = arr.get(high);
 		int i = low - 1;
 		for (int j = low; j<high; j++) {
 			if (arr.get(j).getVideos() < pivot.getVideos()) {
 				i++;
-				int temp = arr.get(i);
+				YouTuber temp = arr.get(i);
 				arr.set(i, arr.get(j));
 				arr.set(j, temp);
 			}
 		}
-		int temp = arr.get(i+1);
+		YouTuber temp = arr.get(i+1);
 		arr.set(i+1, arr.get(high));
 		arr.set(high, temp);
 		return i+1;
