@@ -1,7 +1,21 @@
+/* Student Information
+* -------------------
+* Student Name: Zhang, Bowen
+* Student Number: 400168985
+* Course Code: SE 2XB3
+* Lab Section: 01
+*
+* I attest that the following code being submitted is my own individual
+work.
+*/
+
 import java.util.ArrayList;
 
+/*Sort Module.*/
 public class Sort {
 	
+	/*Merge portion of the MergeSort based on the number of followers.*/
+	/*parameter: Input arraylist of YouTuber arr, leftmost index l, middle index m, rightmost index r.*/
 	private void merge_Followers(ArrayList<YouTuber> arr, int l, int m, int r) {
 		int n1 = m - l + 1; 
         int n2 = r - m; 
@@ -41,6 +55,8 @@ public class Sort {
 		}
 	}
 	
+	/*Recursive Sort portion of the MergeSort based on the number of followers.*/
+	/*parameter: Input arraylist of YouTuber arr, leftmost index l, rightmost index r.*/
 	private void sort_Followers (ArrayList<YouTuber> arr, int l, int r) {
 		if (l < r) {
 			int m = (l+r)/2;
@@ -50,6 +66,8 @@ public class Sort {
 		}
 	}
 	
+	/*Function that calls the MergeSort and returns a sorted arraylist of YouTuber based on the number of followers.*/
+	/*parameter: Input arraylist of YouTuber arr.*/
 	public static ArrayList<YouTuber> MergeSort_Followers (ArrayList<YouTuber> arr){
 		ArrayList<YouTuber> sorted = arr;
 		Sort ob = new Sort();
@@ -57,6 +75,8 @@ public class Sort {
 		return sorted;
 	}
 	
+	/*Partition portion of the QuickSort based on the number of followers.*/
+	/*parameter: Input arraylist of YouTuber arr, leftmost index low, rightmost index high.*/
 	private int partition_Followers (ArrayList<YouTuber> arr, int low, int high) {
 		YouTuber pivot = arr.get(high);
 		int i = low - 1;
@@ -74,6 +94,8 @@ public class Sort {
 		return i+1;
 	}
 	
+	/*Recursive Sort portion of the QuickSort based on the number of followers.*/
+	/*parameter: Input arraylist of YouTuber arr, leftmost index low, rightmost index high.*/
 	private void sort_quick_Followers (ArrayList<YouTuber> arr, int low, int high) {
 		if (low < high) {
 			int pi = partition_Followers(arr, low, high);
@@ -82,6 +104,8 @@ public class Sort {
 		}
 	}
 	
+	/*Function that calls the QuickSort and returns a sorted arraylist of YouTuber based on the number of followers.*/
+	/*parameter: Input arraylist of YouTuber arr.*/
 	public static ArrayList<YouTuber> QuickSort_Followers (ArrayList<YouTuber> arr){
 		ArrayList<YouTuber> sorted = arr;
 		Sort ob = new Sort();
@@ -89,6 +113,8 @@ public class Sort {
 		return sorted;
 	}
 	
+	/*Merge portion of the MergeSort based on the number of Videos.*/
+	/*parameter: Input arraylist of YouTuber arr, leftmost index l, middle index m, rightmost index r.*/
 	private void merge_Videos(ArrayList<YouTuber> arr, int l, int m, int r) {
 		int n1 = m - l + 1; 
         int n2 = r - m; 
@@ -128,6 +154,8 @@ public class Sort {
 		}
 	}
 	
+	/*Recursive Sort portion of the MergeSort based on the number of Videos.*/
+	/*parameter: Input arraylist of YouTuber arr, leftmost index l, rightmost index r.*/
 	private void sort_Videos (ArrayList<YouTuber> arr, int l, int r) {
 		if (l < r) {
 			int m = (l+r)/2;
@@ -137,6 +165,8 @@ public class Sort {
 		}
 	}
 	
+	/*Function that calls the MergeSort and returns a sorted arraylist of YouTuber based on the number of Videos.*/
+	/*parameter: Input arraylist of YouTuber arr.*/
 	public static ArrayList<YouTuber> MergeSort_Videos (ArrayList<YouTuber> arr){
 		ArrayList<YouTuber> sorted = arr;
 		Sort ob = new Sort();
@@ -144,6 +174,8 @@ public class Sort {
 		return sorted;
 	}
 	
+	/*Partition portion of the QuickSort based on the number of Videos.*/
+	/*parameter: Input arraylist of YouTuber arr, leftmost index low, rightmost index high.*/
 	private int partition_Videos (ArrayList<YouTuber> arr, int low, int high) {
 		YouTuber pivot = arr.get(high);
 		int i = low - 1;
@@ -161,6 +193,8 @@ public class Sort {
 		return i+1;
 	}
 	
+	/*Recursive Sort portion of the QuickSort based on the number of Videos.*/
+	/*parameter: Input arraylist of YouTuber arr, leftmost index low, rightmost index high.*/
 	private void sort_quick_Videos (ArrayList<YouTuber> arr, int low, int high) {
 		if (low < high) {
 			int pi = partition_Videos(arr, low, high);
@@ -169,6 +203,8 @@ public class Sort {
 		}
 	}
 	
+	/*Function that calls the QuickSort and returns a sorted arraylist of YouTuber based on the number of Videos.*/
+	/*parameter: Input arraylist of YouTuber arr.*/
 	public static ArrayList<YouTuber> QuickSort_Videos (ArrayList<YouTuber> arr){
 		ArrayList<YouTuber> sorted = arr;
 		Sort ob = new Sort();
