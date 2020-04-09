@@ -50,7 +50,7 @@ public class Sort {
 		}
 	}
 	
-	ArrayList<YouTuber> MergeSort_Followers (ArrayList<YouTuber> arr){
+	public static ArrayList<YouTuber> MergeSort_Followers (ArrayList<YouTuber> arr){
 		ArrayList<YouTuber> sorted = arr;
 		Sort ob = new Sort();
 		ob.sort_Followers(sorted, 0, sorted.size()-1);
@@ -82,7 +82,7 @@ public class Sort {
 		}
 	}
 	
-	ArrayList<YouTuber> QuickSort_Followers (ArrayList<YouTuber> arr){
+	public static ArrayList<YouTuber> QuickSort_Followers (ArrayList<YouTuber> arr){
 		ArrayList<YouTuber> sorted = arr;
 		Sort ob = new Sort();
 		ob.sort_quick_Followers(sorted, 0, sorted.size()-1);
@@ -137,7 +137,7 @@ public class Sort {
 		}
 	}
 	
-	ArrayList<YouTuber> MergeSort_Videos (ArrayList<YouTuber> arr){
+	public static ArrayList<YouTuber> MergeSort_Videos (ArrayList<YouTuber> arr){
 		ArrayList<YouTuber> sorted = arr;
 		Sort ob = new Sort();
 		ob.sort_Videos(sorted, 0, sorted.size()-1);
@@ -169,18 +169,11 @@ public class Sort {
 		}
 	}
 	
-	ArrayList<YouTuber> QuickSort_Videos (ArrayList<YouTuber> arr){
+	public static ArrayList<YouTuber> QuickSort_Videos (ArrayList<YouTuber> arr){
 		ArrayList<YouTuber> sorted = arr;
 		Sort ob = new Sort();
 		ob.sort_quick_Videos(sorted, 0, sorted.size()-1);
 		return sorted;
 	}
 	
-	
-
-	public static void main(String[] args) {
-		
-
-	}
-
 }
