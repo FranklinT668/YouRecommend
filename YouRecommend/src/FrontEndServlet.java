@@ -28,9 +28,9 @@ public class FrontEndServlet extends HttpServlet {
 			if (list.size() == 0) out.println("Invalid Category");
 			else {
 				out.println("Genre Based YouTube Channel Suggestions");
-				out.println("Channel Name" + "\t" + "Followers");
+				out.printf("%-30s %s\n", "Channel Name", "Followers");
 				out.println();
-				for (int i = 0; i < 10; i++) out.println(list.get(i).getTitle() + "\t" + list.get(i).getFollowers());
+				for (int i = 0; i < 10; i++) out.printf("%-30s %d\n", list.get(i).getTitle(), list.get(i).getFollowers());
 				
 				/* Suggesting YouTube channels based on top channel's country */
 				if (req.getParameter("sugg").equals("sugg")) {
@@ -40,11 +40,11 @@ public class FrontEndServlet extends HttpServlet {
 						return;
 					}
 					out.println("Suggested YouTube Channels from " + list.get(0).getCountry());
-					out.println("Channel Name" + "\t" + "Followers");
+					out.printf("%-30s %s\n", "Channel Name", "Followers");
 					out.println();
 					sug = Main.getCountryFollowers(list.get(0).getCountry());
 					if (sug.size() == 0) out.println("No geographical suggestions");
-					for (int i = 1; i < 11; i++) out.println(sug.get(i).getTitle() + "\t" + list.get(i).getFollowers());
+					for (int i = 1; i < 11; i++) out.printf("%-30s %d\n", list.get(i).getTitle(), list.get(i).getFollowers());
 				}
 				else return;
 			}
@@ -56,9 +56,9 @@ public class FrontEndServlet extends HttpServlet {
 			if (list.size() == 0) out.println("Invalid Category"); 
 			else {
 				out.println("Genre Based YouTube Channel Suggestions");
-				out.println("Channel Name" + "\t" + "Videos");
+				out.printf("%-30s %s\n", "Channel Name", "Videos");
 				out.println();
-				for (int i = 0; i < 10; i++) out.println(list.get(i).getTitle() + "\t" + list.get(i).getVideos());
+				for (int i = 0; i < 10; i++) out.printf("%-30s %d\n", list.get(i).getTitle(), list.get(i).getFollowers());
 				
 				/* Suggesting YouTube channels based on top channel's country */
 				if (req.getParameter("sugg").equals("sugg")) {
@@ -68,11 +68,11 @@ public class FrontEndServlet extends HttpServlet {
 						return;
 					}
 					out.println("Suggested YouTube Channels from " + list.get(0).getCountry());
-					out.println("Channel Name" + "\t" + "Videos");
+					out.printf("%-30s %s\n", "Channel Name", "Videos");
 					out.println();
 					sug = Main.getCountryVideos(list.get(0).getCountry());
 					if (sug.size() == 0) out.println("No geographical suggestions");
-					for (int i = 1; i < 11; i++) out.println(sug.get(i).getTitle() + "\t" + list.get(i).getVideos());
+					for (int i = 1; i < 11; i++) out.printf("%-30s %d\n", list.get(i).getTitle(), list.get(i).getFollowers());
 				}
 				else return;
 			}
