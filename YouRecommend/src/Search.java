@@ -25,27 +25,33 @@ public class Search {
 		return input.replaceAll("\\s+", "");
 	}
 
-	public static ArrayList<String> searchCategory(String channel) {
+	public static ArrayList<YouTuber> searchCategory(String channel) {
 		// Receive input of the dataset csv file
 		String input = "channels.csv";
 		// Stores the input in a 2D array
-		String[][] dataset = readCSV.CSVReader(input);
-		int n = dataset.length - 1;
+		String[][] s = readCSV.CSVReader("channels.csv");
+		ArrayList<YouTuber> a = new ArrayList<YouTuber>();
+		
+		for (int i = 0; i < s.length; i++) {
+			YouTuber youTuber = new YouTuber(Integer.parseInt(s[i][0]),s[i][1],s[i][2],
+					Integer.parseInt(s[i][3]),s[i][4],s[i][5],Integer.parseInt(s[i][6]));
+			a.add(youTuber);
+		}
+		int n = a.size() - 1;
 		// Search Youtube channel as input
 		String searchInput = new String(channel);
 		
-		int foundIndex = 0;
 		// Arraylist of channel information about the searched channel
-		ArrayList<String> channelInfo = new ArrayList<String>();
+		ArrayList<YouTuber> channelInfo = new ArrayList<YouTuber>();
 		// Sequential search in the dataset to match searchInput to the corresponding
 		// youtube channels
 		for (int i = 1; i < n; i++) {
 			// The input's case is not sensitive and ignores white spaces
-			if (searchInput.equalsIgnoreCase(dataset[i][1])
-					|| removeWhiteSpaces(searchInput).equalsIgnoreCase(removeWhiteSpaces(dataset[i][1]))) {
+			if (searchInput.equalsIgnoreCase(a.get(i).getCategory_name())
+					|| removeWhiteSpaces(searchInput).equalsIgnoreCase(removeWhiteSpaces(a.get(i).getCategory_name()))) {
 				
-				foundIndex = i;
-				channelInfo.add(dataset[foundIndex][5]);
+				
+				channelInfo.add(a.get(i));
 			}
 		}
 
@@ -100,11 +106,11 @@ public class Search {
 
 	}
 
-	public static void main(String[] args) {
-		ArrayList<String> test = searchChannel("pew die pie");
-		System.out.println(test);
-		ArrayList<String> test2 = searchCategory("film and animation");
-		System.out.println(test2);
-	}
+//	public static void main(String[] args) {
+////		ArrayList<String> test = searchChannel("pew die pie");
+////		System.out.println(test);
+//		ArrayList<YouTuber> test2 = searchCategory("film and animation");
+//		System.out.println(test2.get(0).getTitle());
+//	}
 
 }
