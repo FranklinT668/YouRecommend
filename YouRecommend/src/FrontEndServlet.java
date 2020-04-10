@@ -1,3 +1,9 @@
+/**
+ * welcome to the module that is responsible for communicating with the backend
+ * and displaying information to the front end
+ * Designed and Programmed by Kabishan Suvendran
+ */
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -9,22 +15,67 @@ import javax.servlet.http.HttpServletResponse;
 public class FrontEndServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	/* For handling user requests and delivering responses */
 	public void service(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		PrintWriter out = res.getWriter();
 		String genre = req.getParameter("pref");
 		ArrayList<YouTuber> list = new ArrayList<>();
+		ArrayList<YouTuber> sug = new ArrayList<>();
 		
+		/*Suggesting YouTubers based on follower count*/
 		if (req.getParameter("flw-vid").equals("0")) {
 			list = Main.sortedByFollowers(genre);
 			if (list.size() == 0) out.println("Invalid Category");
-			else
-				for (int i = 0; i < 100; i++) out.println(list.get(i).getTitle() + "\t" + list.get(i).getFollowers());
+			else {
+				out.println("Genre Based YouTube Channel Suggestions");
+				out.println("Channel Name" + "\t" + "Followers");
+				out.println();
+				for (int i = 0; i < 10; i++) out.println(list.get(i).getTitle() + "\t" + list.get(i).getFollowers());
+				
+				/* Suggesting YouTube channels based on top channel's country */
+				if (req.getParameter("sugg").equals("sugg")) {
+					out.println();
+					if (list.get(0).getCountry().equals("")) {
+						out.println("No geographical suggestions");
+						return;
+					}
+					out.println("Suggested YouTube Channels from " + list.get(0).getCountry());
+					out.println("Channel Name" + "\t" + "Followers");
+					out.println();
+					sug = Main.getCountryFollowers(list.get(0).getCountry());
+					if (sug.size() == 0) out.println("No geographical suggestions");
+					for (int i = 1; i < 11; i++) out.println(sug.get(i).getTitle() + "\t" + list.get(i).getFollowers());
+				}
+				else return;
+			}
 		}
+		
+		/*Suggesting YouTubers based on video count*/
 		else if (req.getParameter("flw-vid").equals("1")) {
 			list = Main.sortedByVideos(genre);
 			if (list.size() == 0) out.println("Invalid Category"); 
-			else 
-				for (int i = 0; i < 100; i++) out.println(list.get(i).getTitle() + "\t" + list.get(i).getVideos());
+			else {
+				out.println("Genre Based YouTube Channel Suggestions");
+				out.println("Channel Name" + "\t" + "Videos");
+				out.println();
+				for (int i = 0; i < 10; i++) out.println(list.get(i).getTitle() + "\t" + list.get(i).getVideos());
+				
+				/* Suggesting YouTube channels based on top channel's country */
+				if (req.getParameter("sugg").equals("sugg")) {
+					out.println();
+					if (list.get(0).getCountry().equals("")) {
+						out.println("No geographical suggestions");
+						return;
+					}
+					out.println("Suggested YouTube Channels from " + list.get(0).getCountry());
+					out.println("Channel Name" + "\t" + "Videos");
+					out.println();
+					sug = Main.getCountryVideos(list.get(0).getCountry());
+					if (sug.size() == 0) out.println("No geographical suggestions");
+					for (int i = 1; i < 11; i++) out.println(sug.get(i).getTitle() + "\t" + list.get(i).getVideos());
+				}
+				else return;
+			}
 		}
 	}
 }

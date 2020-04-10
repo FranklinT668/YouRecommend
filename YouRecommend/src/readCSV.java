@@ -64,9 +64,7 @@ public class readCSV {
 					g.addEdge(a.get(i), a.get(j));
 					marked[j] = true;
 				}
-				else {
-					break;
-				}
+				else break;
 			}
 		}
 		
