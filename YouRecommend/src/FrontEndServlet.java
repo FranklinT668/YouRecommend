@@ -16,15 +16,15 @@ public class FrontEndServlet extends HttpServlet {
 		
 		if (req.getParameter("flw-vid").equals("0")) {
 			list = Main.sortedByFollowers(genre);
-			for (int i = 0; i < 100; i++) {
-				out.println(list.get(i).getTitle() + "\t" + list.get(i).getFollowers());
-			}
+			if (list.size() == 0) out.println("Invalid Category");
+			else
+				for (int i = 0; i < 100; i++) out.println(list.get(i).getTitle() + "\t" + list.get(i).getFollowers());
 		}
 		else if (req.getParameter("flw-vid").equals("1")) {
 			list = Main.sortedByVideos(genre);
-			for (int i = 0; i < 100; i++) {
-				out.println(list.get(i).getTitle() + "\t" + list.get(i).getVideos());
-			}
+			if (list.size() == 0) out.println("Invalid Category"); 
+			else 
+				for (int i = 0; i < 100; i++) out.println(list.get(i).getTitle() + "\t" + list.get(i).getVideos());
 		}
 	}
 }
