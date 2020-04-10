@@ -1,15 +1,4 @@
-import java.io.File;
-
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Scanner;
-
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.BufferedReader;
-import java.io.BufferedReader;
 
 /**
  * @brief An ADT that performs search in the database.
@@ -29,7 +18,7 @@ public class Search {
 		// Receive input of the dataset csv file
 		String input = "channels.csv";
 		// Stores the input in a 2D array
-		String[][] s = readCSV.CSVReader("channels.csv");
+		String[][] s = readCSV.CSVReader(input);
 		ArrayList<YouTuber> a = new ArrayList<YouTuber>();
 		
 		for (int i = 0; i < s.length; i++) {
