@@ -307,9 +307,15 @@ img {
   border-radius: 50%;
 }
 
+.youtube {
+  padding-left: 1%;
+  padding-top: 0.5%;
+}
+
 /* Forms */
 input {
   margin: 1.2rem 0;
+  border-radius: 25px;
 }
 
 .form-text {
@@ -324,8 +330,7 @@ input[type='password'],
 input[type='date'],
 select,
 textarea {
-  display: block;
-  width: 100%;
+  width: 50%;
   padding: 0.4rem;
   font-size: 1.2rem;
   border: 1px solid #ccc;
@@ -334,6 +339,10 @@ textarea {
 input[type='submit'],
 button {
   font: inherit;
+}
+
+.preference {
+	text-align: center;
 }
 
 table th,
@@ -348,9 +357,11 @@ table th {
 
 /* Navbar */
 .navbar {
-  text-align: center;
   width: 100%;
   padding: 1rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
   color: #fff;
   background: var(--primary-color);
 }

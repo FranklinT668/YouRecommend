@@ -1,14 +1,3 @@
-/* Student Information
-* -------------------
-* Student Name: Zhang, Bowen
-* Student Number: 400168985
-* Course Code: SE 2XB3
-* Lab Section: 01
-*
-* I attest that the following code being submitted is my own individual
-work.
-*/
-
 import java.util.ArrayList;
 
 /*Sort Module.*/
@@ -72,7 +61,11 @@ public class Sort {
 		ArrayList<YouTuber> sorted = arr;
 		Sort ob = new Sort();
 		ob.sort_Followers(sorted, 0, sorted.size()-1);
-		return sorted;
+		ArrayList<YouTuber> rev = new ArrayList<YouTuber>(); 
+        for (int i = sorted.size() - 1; i >= 0; i--) { 
+        	rev.add(sorted.get(i)); 
+        } 
+        return rev;
 	}
 	
 	/*Partition portion of the QuickSort based on the number of followers.*/
@@ -110,7 +103,11 @@ public class Sort {
 		ArrayList<YouTuber> sorted = arr;
 		Sort ob = new Sort();
 		ob.sort_quick_Followers(sorted, 0, sorted.size()-1);
-		return sorted;
+		ArrayList<YouTuber> rev = new ArrayList<YouTuber>(); 
+        for (int i = sorted.size() - 1; i >= 0; i--) { 
+        	rev.add(sorted.get(i)); 
+        } 
+        return rev;
 	}
 	
 	/*Merge portion of the MergeSort based on the number of Videos.*/
@@ -171,7 +168,11 @@ public class Sort {
 		ArrayList<YouTuber> sorted = arr;
 		Sort ob = new Sort();
 		ob.sort_Videos(sorted, 0, sorted.size()-1);
-		return sorted;
+		ArrayList<YouTuber> rev = new ArrayList<YouTuber>(); 
+        for (int i = sorted.size() - 1; i >= 0; i--) { 
+        	rev.add(sorted.get(i)); 
+        } 
+        return rev;
 	}
 	
 	/*Partition portion of the QuickSort based on the number of Videos.*/
@@ -209,7 +210,12 @@ public class Sort {
 		ArrayList<YouTuber> sorted = arr;
 		Sort ob = new Sort();
 		ob.sort_quick_Videos(sorted, 0, sorted.size()-1);
-		return sorted;
+		ArrayList<YouTuber> rev = new ArrayList<YouTuber>(); 
+        for (int i = sorted.size() - 1; i >= 0; i--) { 
+        	rev.add(sorted.get(i)); 
+        } 
+        return rev;
 	}
 	
 }
+

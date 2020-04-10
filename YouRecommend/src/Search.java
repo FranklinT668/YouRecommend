@@ -18,7 +18,9 @@ public class Search {
 		// Receive input of the dataset csv file
 		String input = "channels.csv";
 		// Stores the input in a 2D array
+
 		String[][] s = readCSV.CSVReader(input);
+		
 		ArrayList<YouTuber> a = new ArrayList<YouTuber>();
 		
 		for (int i = 0; i < s.length; i++) {
@@ -46,9 +48,6 @@ public class Search {
 
 		return channelInfo;
 	}
-
-	
-	
 	
 	/**
 	 * @brief Search function that searches for a specific youtube channel
@@ -92,14 +91,5 @@ public class Search {
 		}
 
 		return channelInfo;
-
 	}
-
-//	public static void main(String[] args) {
-////		ArrayList<String> test = searchChannel("pew die pie");
-////		System.out.println(test);
-//		ArrayList<YouTuber> test2 = searchCategory("film and animation");
-//		System.out.println(test2.get(0).getTitle());
-//	}
-
 }

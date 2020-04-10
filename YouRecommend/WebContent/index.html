@@ -4,8 +4,23 @@
     <meta charset="UTF-8">
     <title>YouRecommend</title>
     <link href="styles.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
-    <div class="navbar">YouRecommend</div>
+    <div class="navbar">
+      <div>
+        <i class="fa fa-youtube-square fa-2x"></i>
+      </div>
+      <div class="youtube">YouRecommend</div>
+    </div>
+    <div class="preference">
+      <form action="pref">
+        <label style="font-weight: bold; margin-right: 10px;">
+          Channel Preference
+        </label>
+        <input class="input" type="text" name="pref"><br>
+        <input class="btn" type="submit">
+      </form>
+    </div>
   </body>
 </html>

@@ -1,7 +1,7 @@
-import java.io.FileNotFoundException;
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 /**
@@ -15,16 +15,16 @@ public class readCSV {
 	 * @return The data that is stored in a 2D array
 	 */
 	static String[][] CSVReader(String filepath) {
-
-		String csvFile = filepath;
-		BufferedReader br = null;
 		String line = "";
+		InputStream is = null;
+		BufferedReader br = null;
 		String[][] dataset = new String[104539][7];
 		int row = 0;
 
 		// Uses BufferedReader to read the text from filepath
 		try {
-			br = new BufferedReader(new FileReader(csvFile));
+			is = FrontEndServlet.class.getClassLoader().getResourceAsStream("/" + filepath);
+			br = new BufferedReader(new InputStreamReader(is));
 			// If there are still lines within the database
 			line = br.readLine();
 			while ((line = br.readLine()) != null) {
@@ -32,21 +32,12 @@ public class readCSV {
 				dataset[row] = line.split(",");
 				row++;
 			}
+			br.close();
 			// Checks are errors
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-		} finally {
-			// Closes the file when everything is stored in dataset array
-			if (br != null) {
-				try {
-					br.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
 		}
+		
 		return dataset;
 	}
 	
