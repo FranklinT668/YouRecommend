@@ -18,7 +18,7 @@ public class Sort {
         int k = l; 
         while (i < n1 && j < n2) 
         { 
-            if (L[i].getFollowers() <= R[j].getFollowers()) 
+            if (L[i].getFollowers() >= R[j].getFollowers()) 
             { 
                 arr.set(k, L[i]); 
                 i++; 
@@ -61,11 +61,7 @@ public class Sort {
 		ArrayList<YouTuber> sorted = arr;
 		Sort ob = new Sort();
 		ob.sort_Followers(sorted, 0, sorted.size()-1);
-		ArrayList<YouTuber> rev = new ArrayList<YouTuber>(); 
-        for (int i = sorted.size() - 1; i >= 0; i--) { 
-        	rev.add(sorted.get(i)); 
-        } 
-        return rev;
+		return sorted;
 	}
 	
 	/*Partition portion of the QuickSort based on the number of followers.*/
@@ -74,7 +70,7 @@ public class Sort {
 		YouTuber pivot = arr.get(high);
 		int i = low - 1;
 		for (int j = low; j<high; j++) {
-			if (arr.get(j).getFollowers() < pivot.getFollowers()) {
+			if (arr.get(j).getFollowers() > pivot.getFollowers()) {
 				i++;
 				YouTuber temp = arr.get(i);
 				arr.set(i, arr.get(j));
@@ -103,11 +99,7 @@ public class Sort {
 		ArrayList<YouTuber> sorted = arr;
 		Sort ob = new Sort();
 		ob.sort_quick_Followers(sorted, 0, sorted.size()-1);
-		ArrayList<YouTuber> rev = new ArrayList<YouTuber>(); 
-        for (int i = sorted.size() - 1; i >= 0; i--) { 
-        	rev.add(sorted.get(i)); 
-        } 
-        return rev;
+		return sorted;
 	}
 	
 	/*Merge portion of the MergeSort based on the number of Videos.*/
@@ -125,7 +117,7 @@ public class Sort {
         int k = l; 
         while (i < n1 && j < n2) 
         { 
-            if (L[i].getVideos() <= R[j].getVideos()) 
+            if (L[i].getVideos() >= R[j].getVideos()) 
             { 
                 arr.set(k, L[i]); 
                 i++; 
@@ -168,11 +160,7 @@ public class Sort {
 		ArrayList<YouTuber> sorted = arr;
 		Sort ob = new Sort();
 		ob.sort_Videos(sorted, 0, sorted.size()-1);
-		ArrayList<YouTuber> rev = new ArrayList<YouTuber>(); 
-        for (int i = sorted.size() - 1; i >= 0; i--) { 
-        	rev.add(sorted.get(i)); 
-        } 
-        return rev;
+		return sorted;
 	}
 	
 	/*Partition portion of the QuickSort based on the number of Videos.*/
@@ -181,7 +169,7 @@ public class Sort {
 		YouTuber pivot = arr.get(high);
 		int i = low - 1;
 		for (int j = low; j<high; j++) {
-			if (arr.get(j).getVideos() < pivot.getVideos()) {
+			if (arr.get(j).getVideos() > pivot.getVideos()) {
 				i++;
 				YouTuber temp = arr.get(i);
 				arr.set(i, arr.get(j));
@@ -210,12 +198,8 @@ public class Sort {
 		ArrayList<YouTuber> sorted = arr;
 		Sort ob = new Sort();
 		ob.sort_quick_Videos(sorted, 0, sorted.size()-1);
-		ArrayList<YouTuber> rev = new ArrayList<YouTuber>(); 
-        for (int i = sorted.size() - 1; i >= 0; i--) { 
-        	rev.add(sorted.get(i)); 
-        } 
-        return rev;
+		return sorted;
 	}
 	
+	
 }
-
