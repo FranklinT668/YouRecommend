@@ -14,10 +14,10 @@ public class DFS {
 	 * @param g An undirected graph.
 	 * @param category The category of a YouTuber.
 	 */
-	public DFS(Graph g, String category) {
+	public DFS(Graph g, String country) {
 		
 		for (YouTuber u: g.getYouTubers()) {
-			if (u.getCategory_name().equals(category)) {
+			if (u.getCountry().equals(country)) {
 				temp = u;
 			}
 		}
