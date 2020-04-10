@@ -13,12 +13,18 @@
       </div>
       <div class="youtube">YouRecommend</div>
     </div>
-    <div class="preference">
+    <div class="card">
       <form action="pref">
         <label style="font-weight: bold; margin-right: 10px;">
           Channel Preference
         </label>
         <input class="input" type="text" name="pref"><br>
+        <b>Sort By</b><br>
+        <label>
+          <input type="radio" id="flw" name="flw-vid" value="0"> Followers<br>
+          <input type="radio" id="vid" name="flw-vid" value="1"> Videos
+        </label>
+        <br>
         <input class="btn" type="submit">
       </form>
     </div>
