@@ -44,6 +44,7 @@ public class FrontEndServlet extends HttpServlet {
 					out.println();
 					sug = Main.getCountryFollowers(list.get(0).getCountry());
 					if (sug.size() == 0) out.println("No geographical suggestions");
+					// sug = Sort.QuickSort_Followers(sug);
 					for (int i = 1; i < 11; i++) out.printf("%-30s %d\n", list.get(i).getTitle(), list.get(i).getFollowers());
 				}
 				else return;
@@ -58,7 +59,7 @@ public class FrontEndServlet extends HttpServlet {
 				out.println("Genre Based YouTube Channel Suggestions");
 				out.printf("%-30s %s\n", "Channel Name", "Videos");
 				out.println();
-				for (int i = 0; i < 10; i++) out.printf("%-30s %d\n", list.get(i).getTitle(), list.get(i).getFollowers());
+				for (int i = 0; i < 10; i++) out.printf("%-30s %d\n", list.get(i).getTitle(), list.get(i).getVideos());
 				
 				/* Suggesting YouTube channels based on top channel's country */
 				if (req.getParameter("sugg").equals("sugg")) {
@@ -72,7 +73,8 @@ public class FrontEndServlet extends HttpServlet {
 					out.println();
 					sug = Main.getCountryVideos(list.get(0).getCountry());
 					if (sug.size() == 0) out.println("No geographical suggestions");
-					for (int i = 1; i < 11; i++) out.printf("%-30s %d\n", list.get(i).getTitle(), list.get(i).getFollowers());
+					sug = Sort.QuickSort_Videos(sug);
+					for (int i = 1; i < 11; i++) out.printf("%-30s %d\n", list.get(i).getTitle(), list.get(i).getVideos());
 				}
 				else return;
 			}
