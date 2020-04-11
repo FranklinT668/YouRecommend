@@ -2,23 +2,37 @@ import java.util.ArrayList;
 
 public class Main {
 
-	public static ArrayList<YouTuber> getCountryFollowers(String country) {
+	public static ArrayList<YouTuber> getCountryFollowers(YouTuber source) {
+
 		Graph g = readCSV.generateGraph();
-		DFS d = new DFS(g, country);
+
+		DFS d = new DFS(g, source);
 		// gets related YouTubers
 		ArrayList<YouTuber> a = d.relatedYouTubers();
+
 		Sort.MergeSort_Followers(a);
+
 		return a;
 	}
 
-	public static ArrayList<YouTuber> getCountryVideos(String country) {
+	public static ArrayList<YouTuber> getCountryVideos(YouTuber source) {
+
 		Graph g = readCSV.generateGraph();
-		DFS d = new DFS(g, country);
+
+		DFS d = new DFS(g, source);
 		// gets related YouTubers
 		ArrayList<YouTuber> a = d.relatedYouTubers();
+
 		Sort.QuickSort_Videos(a);
+
 		return a;
 	}
+//
+//	public static ArrayList<String> SearchYoutuber(String channel) {
+//		// Calls for search function in Search module
+//		ArrayList<String> channelInfo = Search.searchChannel(channel);
+//		return channelInfo;
+//	}
 	
 	public static ArrayList<YouTuber> sortedByFollowers(String category) {
 		// Calls for search function in Search module
@@ -33,4 +47,5 @@ public class Main {
 		Sort.QuickSort_Videos(categoryInfo);
 		return categoryInfo;
 	}
+	
 }

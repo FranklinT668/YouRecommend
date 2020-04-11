@@ -4,6 +4,7 @@ import java.util.ArrayList;
  * @brief Depth-first Search.
  */
 public class DFS {
+	private YouTuber source;
 	private YouTuber temp;
 	private boolean[] marked;
 	private YouTuber[] edgeTo;
@@ -12,12 +13,13 @@ public class DFS {
     /**
 	 * @brief The constructor of depth first search.
 	 * @param g An undirected graph.
-	 * @param category The category of a YouTuber.
+	 * @param source A YouTuber.
 	 */
-	public DFS(Graph g, String country) {
+	public DFS(Graph g, YouTuber source) {
+		this.source = source;
 		
 		for (YouTuber u: g.getYouTubers()) {
-			if (u.getCountry().equals(country)) {
+			if (u.getCountry().equals(source.getCountry())) {
 				temp = u;
 			}
 		}
@@ -60,7 +62,8 @@ public class DFS {
 	public ArrayList<YouTuber> relatedYouTubers(){
 		ArrayList<YouTuber> a = new ArrayList<YouTuber>();
 		for (int i = 0; i < marked.length; i++) {
-			if (marked[i] == true) {
+			if (marked[i] == true && g.getYouTubers().get(i).getCategory_name()
+					.equals(source.getCategory_name())) {
 				a.add(g.getYouTubers().get(i));
 			}
 		}
