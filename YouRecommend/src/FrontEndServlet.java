@@ -42,7 +42,7 @@ public class FrontEndServlet extends HttpServlet {
 					out.println("Suggested YouTube Channels from " + list.get(0).getCountry());
 					out.printf("%-30s %s\n", "Channel Name", "Followers");
 					out.println();
-					sug = Main.getCountryFollowers(list.get(0).getCountry());
+					sug = Main.getCountryFollowers(list.get(0));
 					if (sug.size() == 0) out.println("No geographical suggestions");
 					sug = Sort.QuickSort_Followers(sug);
 					for (int i = 1; i < 11; i++) out.printf("%-30s %d\n", sug.get(i).getTitle(), sug.get(i).getFollowers());
@@ -71,7 +71,7 @@ public class FrontEndServlet extends HttpServlet {
 					out.println("Suggested YouTube Channels from " + list.get(0).getCountry());
 					out.printf("%-30s %s\n", "Channel Name", "Videos");
 					out.println();
-					sug = Main.getCountryVideos(list.get(0).getCountry());
+					sug = Main.getCountryVideos(list.get(0));
 					if (sug.size() == 0) out.println("No geographical suggestions");
 					sug = Sort.QuickSort_Videos(sug);
 					for (int i = 1; i < 11; i++) out.printf("%-30s %d\n", sug.get(i).getTitle(), sug.get(i).getVideos());
