@@ -11,7 +11,7 @@ YouTube channel recommendation application
 Version 1.0 complete
 
 *************************************************************
-Apache Tomcat & Java EE are required to use this application.
+**Apache Tomcat & Java EE are required to use this application.**
 *************************************************************
 
 Developed by Franklin Tian, Kabishan Suvendran, Jiawei Yu, Bowen Zhang
