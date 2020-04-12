@@ -8,7 +8,11 @@ ______________Group 2 FINAL PROJECT_______________
 
 YouTube channel recommendation application
 
-Currently in development...
+Version 1.0 complete
 
+*************************************************************
+Apache Tomcat & Java EE are required to use this application.
+*************************************************************
 
 Developed by Franklin Tian, Kabishan Suvendran, Jiawei Yu, Bowen Zhang
+
