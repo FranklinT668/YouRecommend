@@ -1,6 +1,9 @@
 /**
- * welcome to the module that is responsible for communicating with the backend
- * and displaying information to the front end
+ * Welcome to the module that is responsible for communicating with the back-end 
+ * aspect of the project and displaying information to the front-end.
+ * Please install Java EE and Apache Tomcat to run this program
+ * Also, to run this project, you need to right-click the project folder and run
+ * as 'Run on Server'
  * Designed and Programmed by Kabishan Suvendran
  */
 
