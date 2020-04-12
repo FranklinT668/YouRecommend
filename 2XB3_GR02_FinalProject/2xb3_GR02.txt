@@ -1,0 +1,12 @@
+SFWR ENG 2XB3
+
+Member Names	   Student #	 Role(s)
+Kabishan Suvendran 400196622     Front-End Developer
+Franklin Tian 	   400171067     Back-End Developer
+Jiawei Yu          400152646     Back-End Developer
+Bowen Zhang        400168985     Back-End Developer
+
+By virtue of submitting this code on April 12th, 2020, 
+we attest that the work being submitted by all of the 
+individuals in the group is their exclusive work as
+a group.
