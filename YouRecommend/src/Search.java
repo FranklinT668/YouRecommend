@@ -14,41 +14,40 @@ public class Search {
 		return input.replaceAll("\\s+", "");
 	}
 
-	public static ArrayList<YouTuber> searchCategory(String channel) {
+	public static ArrayList<YouTuber> searchCategory(String category) {
 		// Receive input of the dataset csv file
 		String input = "channels.csv";
 		// Stores the input in a 2D array
 
 		String[][] s = readCSV.CSVReader(input);
-		
+
 		ArrayList<YouTuber> a = new ArrayList<YouTuber>();
-		
+
 		for (int i = 0; i < s.length; i++) {
-			YouTuber youTuber = new YouTuber(Integer.parseInt(s[i][0]),s[i][1],s[i][2],
-					Integer.parseInt(s[i][3]),s[i][4],s[i][5],Integer.parseInt(s[i][6]));
+			YouTuber youTuber = new YouTuber(Integer.parseInt(s[i][0]), s[i][1], s[i][2], Integer.parseInt(s[i][3]),
+					s[i][4], s[i][5], Integer.parseInt(s[i][6]));
 			a.add(youTuber);
 		}
 		int n = a.size() - 1;
 		// Search Youtube channel as input
-		String searchInput = new String(channel);
-		
+		String searchInput = new String(category);
+
 		// Arraylist of channel information about the searched channel
 		ArrayList<YouTuber> channelInfo = new ArrayList<YouTuber>();
 		// Sequential search in the dataset to match searchInput to the corresponding
 		// youtube channels
 		for (int i = 1; i < n; i++) {
 			// The input's case is not sensitive and ignores white spaces
-			if (searchInput.equalsIgnoreCase(a.get(i).getCategory_name())
-					|| removeWhiteSpaces(searchInput).equalsIgnoreCase(removeWhiteSpaces(a.get(i).getCategory_name()))) {
-				
-				
+			if (searchInput.equalsIgnoreCase(a.get(i).getCategory_name()) || removeWhiteSpaces(searchInput)
+					.equalsIgnoreCase(removeWhiteSpaces(a.get(i).getCategory_name()))) {
+
 				channelInfo.add(a.get(i));
 			}
 		}
 
 		return channelInfo;
 	}
-	
+
 	/**
 	 * @brief Search function that searches for a specific youtube channel
 	 * @param channel The channel being searched
