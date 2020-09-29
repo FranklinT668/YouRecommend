@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ______________Group 2 FINAL PROJECT_______________
 
 
@@ -16,3 +17,7 @@ Version 1.0 complete
 
 Developed by Franklin Tian, Kabishan Suvendran, Jiawei Yu, Bowen Zhang
 
+=======
+# YouRecommend
+Youtube channel recommendations based on your preferences
+>>>>>>> cbb8dd3cb5114235fa8e217178b490194fd3ad51
